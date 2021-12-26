@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -55,7 +56,13 @@ class PostType extends AbstractType
                 'required' => false,
                 'attr' => ['class' => 'datepicker'],
                 'label' => 'Date de publication',
-                ])
+			])
+			->add('publishedTimeAt', TimeType::class, [
+                'widget' => 'single_text',
+                'required' => false,
+                'attr' => ['class' => 'timepicker'],
+                'label' => 'Heure de publication',
+			])
             ->add('save', SubmitType::class, [
                 'label' => $this->translator->trans('default.action.save', [], 'admin'),
                 'attr' => ['class' => 'btn right'],

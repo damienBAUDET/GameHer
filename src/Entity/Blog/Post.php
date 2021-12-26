@@ -95,6 +95,12 @@ class Post
      */
     protected $publishedAt;
 
+	/**
+     * @var DateTime
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $publishedTimeAt;
+
     /**
      * @var DateTime
      * @ORM\Column(type="datetime")
@@ -277,4 +283,20 @@ class Post
 
         return $this;
     }
+
+	/**
+	 * @return DateTime
+	 */
+	public function getPublishedTimeAt(): ?DateTime
+	{
+		return $this->publishedTimeAt;
+	}
+
+	/**
+	 * @param DateTime $publishedTimeAt
+	 */
+	public function setPublishedTimeAt(DateTime $publishedTimeAt): void
+	{
+		$this->publishedTimeAt = $publishedTimeAt;
+	}
 }

@@ -39,7 +39,7 @@
 						</div>
 					</td>
 					{% if post.publishedAt %}
-						<td>{{ post.publishedAt| date('d/m/y H:i') }}</td>
+						<td>{{ post.publishedAt| date('d/m/y') }} {{ post.publishedTimeAt | date('H:i') }}</td>
 					{% else %}
 						<td>{{ 'posts.index.not_published'|trans }}</td>
 					{% endif %}
